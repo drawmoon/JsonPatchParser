@@ -23,7 +23,7 @@ namespace JsonPatchParser.Extensions
             return PatchParser.TryVisit(patchDoc, out message);
         }
 
-        public static bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, ModelStateDictionary modelState) where TModel : class, new()
+        public static bool TryVisit<TModel>(this JsonPatchDocument<TModel> patchDoc, ModelStateDictionary modelState) where TModel : class, new()
         {
             return PatchParser.TryVisit(patchDoc, modelState);
         }

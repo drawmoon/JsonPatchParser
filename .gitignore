@@ -1,3 +1,9 @@
 bin/
 obj/
 /packages/
+
+# JetBrains Rider
+.idea/
+
+# Visual Studio
+.vs/

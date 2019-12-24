@@ -1,3 +1,21 @@
 # JsonPatchParser
 
-`json-patch` 语法解析器，使用 `JsonPatchParser` 在 `ApplyTo` 之前验证 `json-patch` 的语法，并将错误信息写入 `ModelState`，或返回 `Message`。
+Use `TryVisit` to verify the syntax of `json-patch` and write the error message to `ModelState`, or return `Message`.
+
+## Sample
+
+```csharp
+[HttpPatch]
+[ProducesResponseType(StatusCodes.Status200OK)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
+public IActionResult Update([FromBody, BindRequired] JsonPatchDocument<Column> patch)
+{
+    // verify the syntax of json-patch
+    if (patch.TryVisit(ModelState))
+    {
+        return BadRequest(ModelState);
+    }
+
+    return Ok();
+}
+```
