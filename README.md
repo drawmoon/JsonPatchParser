@@ -11,7 +11,7 @@ Use `TryVisit` to verify the syntax of `json-patch` and write the error message 
 public IActionResult Update([FromBody, BindRequired] JsonPatchDocument<Column> patch)
 {
     // verify the syntax of json-patch
-    if (patch.TryVisit(ModelState))
+    if (!patch.TryVisit(ModelState))
     {
         return BadRequest(ModelState);
     }

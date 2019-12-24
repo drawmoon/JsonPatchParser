@@ -21,7 +21,7 @@ namespace JsonPatchParser.Sample.Controllers
         public IActionResult Update([FromBody, BindRequired] JsonPatchDocument<Column> patch)
         {
             // verify the syntax of json-patch
-            if (patch.TryVisit(ModelState))
+            if (!patch.TryVisit(ModelState))
             {
                 return BadRequest(ModelState);
             }
