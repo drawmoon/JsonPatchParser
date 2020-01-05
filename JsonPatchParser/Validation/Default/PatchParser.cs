@@ -1,5 +1,4 @@
 ﻿using JsonPatchParser.Extensions;
-using JsonPatchParser.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.JsonPatch.Internal;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -8,13 +7,6 @@ namespace JsonPatchParser.Validation.Default
 {
     public class PatchParser : IPatchParser
     {
-        private readonly IPatchValidatorFactory _jsonPatchParserFactory;
-
-        public PatchParser(IPatchValidatorFactory jsonPatchParserFactory)
-        {
-            _jsonPatchParserFactory = jsonPatchParserFactory;
-        }
-        
         public bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, out string message) where TModel : class, new()
         {
             return TryVisit(patchDoc, out _, out message);
@@ -38,7 +30,7 @@ namespace JsonPatchParser.Validation.Default
 
             foreach (var operation in patchDoc.Operations)
             {
-                var jsonPatchParser = _jsonPatchParserFactory.Create(operation.OperationType);
+                var jsonPatchParser = PatchValidatorFactory.Create(operation.OperationType);
 
                 if (!jsonPatchParser.IsValid(operation))
                 {
