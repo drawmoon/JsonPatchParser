@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.JsonPatch.Internal;
+﻿using Microsoft.AspNetCore.JsonPatch.Internal;
 using Newtonsoft.Json.Serialization;
+using System;
+using System.Linq;
 
-namespace JsonPatchParser.Extensions
+namespace JsonPatchValidator.Extensions
 {
-    internal static class PatchParserExtensions
+    internal static class PatchValidatorExtensions
     {
         private static readonly IContractResolver ContractResolver = new DefaultContractResolver();
-        
+
         internal static bool TryValidPath(this Type targetType, ParsedPath parsedPath, out string segment, out string message)
-        {   
+        {
             var location = targetType;
 
             foreach (var parsedSegment in parsedPath.Segments)
@@ -24,7 +24,7 @@ namespace JsonPatchParser.Extensions
 
                 location = jsonProperty.PropertyType;
             }
-            
+
             segment = null;
             message = null;
             return true;

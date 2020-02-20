@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonPatchParser", "JsonPatchParser\JsonPatchParser.csproj", "{3EF18DC4-CB26-4690-B708-AA2ED9AEE953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonPatchValidator", "JsonPatchParser\JsonPatchValidator.csproj", "{3EF18DC4-CB26-4690-B708-AA2ED9AEE953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonPatchParser.Sample", "JsonPatchParser.Sample\JsonPatchParser.Sample.csproj", "{F958F4C3-EF1E-4F40-A212-AA69B61A62B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonPatchValidator.Sample", "JsonPatchParser.Sample\JsonPatchValidator.Sample.csproj", "{F958F4C3-EF1E-4F40-A212-AA69B61A62B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonPatchValidator.Tests", "JsonPatchValidator.Tests\JsonPatchValidator.Tests.csproj", "{89535773-5A4A-46E8-A133-0ED6A4DBE776}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F958F4C3-EF1E-4F40-A212-AA69B61A62B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F958F4C3-EF1E-4F40-A212-AA69B61A62B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F958F4C3-EF1E-4F40-A212-AA69B61A62B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89535773-5A4A-46E8-A133-0ED6A4DBE776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89535773-5A4A-46E8-A133-0ED6A4DBE776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89535773-5A4A-46E8-A133-0ED6A4DBE776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89535773-5A4A-46E8-A133-0ED6A4DBE776}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

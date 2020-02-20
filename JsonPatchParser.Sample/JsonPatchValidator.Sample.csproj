@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JsonPatchParser\JsonPatchParser.csproj" />
+    <ProjectReference Include="..\JsonPatchParser\JsonPatchValidator.csproj" />
   </ItemGroup>
 
 

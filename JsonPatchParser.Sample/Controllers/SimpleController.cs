@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JsonPatchParser.Extensions;
-using JsonPatchParser.Sample.Models;
+using JsonPatchValidator.Extensions;
+using JsonPatchValidator.Sample.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace JsonPatchParser.Sample.Controllers
+namespace JsonPatchValidator.Sample.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,9 +22,7 @@ namespace JsonPatchParser.Sample.Controllers
         {
             // verify the syntax of json-patch
             if (!patch.TryVisit(ModelState))
-            {
                 return BadRequest(ModelState);
-            }
 
             return Ok();
         }

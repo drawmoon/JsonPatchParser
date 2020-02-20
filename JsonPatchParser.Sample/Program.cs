@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace JsonPatchParser.Sample
+namespace JsonPatchValidator.Sample
 {
     public class Program
     {

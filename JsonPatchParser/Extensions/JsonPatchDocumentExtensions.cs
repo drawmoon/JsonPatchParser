@@ -1,13 +1,13 @@
-﻿using JsonPatchParser.Validation;
-using JsonPatchParser.Validation.Default;
+﻿using JsonPatchValidator.Validation;
+using JsonPatchValidator.Validation.Default;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace JsonPatchParser.Extensions
+namespace JsonPatchValidator.Extensions
 {
     public static class JsonPatchDocumentExtensions
     {
-        private static readonly IPatchParser PatchParser = new PatchParser();
+        private static readonly IPatchValidator PatchParser = new PatchValidator();
 
         public static bool TryVisit<TModel>(this JsonPatchDocument<TModel> patchDoc, out string message) where TModel : class, new()
         {

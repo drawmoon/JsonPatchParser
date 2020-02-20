@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.AspNetCore.JsonPatch.Operations;
+﻿using Microsoft.AspNetCore.JsonPatch.Operations;
+using System;
 
-namespace JsonPatchParser.Validation.Default
+namespace JsonPatchValidator.Validation.Default
 {
-    public static class PatchValidatorFactory
+    public static class DocumentValidatorFactory
     {
-        public static IPatchValidator Create(OperationType operationType)
+        public static IDocumentValidator Create(OperationType operationType)
         {
             switch (operationType)
             {
@@ -15,9 +15,9 @@ namespace JsonPatchParser.Validation.Default
                 case OperationType.Copy:
                 case OperationType.Test:
                 case OperationType.Invalid:
-                    return new DefaultPatchValidator();
+                    return new DefaultDocumentValidator();
                 case OperationType.Remove:
-                    return new RemovePatchValidator();
+                    return new RemoveDocumentValidator();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operationType), operationType, null);
             }

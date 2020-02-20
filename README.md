@@ -1,4 +1,4 @@
-# JsonPatchParser
+# JsonPatchValidator
 
 Use `TryVisit` to verify the syntax of `json-patch` and write the error message to `ModelState`, or return `Message`.
 

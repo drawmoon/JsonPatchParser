@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace JsonPatchParser.Sample
+namespace JsonPatchValidator.Sample
 {
     public class Startup
     {
@@ -31,9 +31,7 @@ namespace JsonPatchParser.Sample
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
 
             app.UseRouting();
 
