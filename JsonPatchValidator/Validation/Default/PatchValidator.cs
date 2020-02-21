@@ -10,14 +10,16 @@ namespace JsonPatchValidator.Validation.Default
     {
         public bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, out string message) where TModel : class, new()
         {
-            if (patchDoc == null) throw new ArgumentNullException(nameof(patchDoc));
+            if (patchDoc == null || patchDoc.Operations == null)
+                throw new ArgumentNullException(nameof(patchDoc));
 
             return TryVisit(patchDoc, out _, out message);
         }
 
         public bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, ModelStateDictionary modelState) where TModel : class, new()
         {
-            if (patchDoc == null) throw new ArgumentNullException(nameof(patchDoc));
+            if (patchDoc == null || patchDoc.Operations == null)
+                throw new ArgumentNullException(nameof(patchDoc));
 
             if (modelState == null) throw new ArgumentNullException(nameof(modelState));
 
@@ -36,10 +38,9 @@ namespace JsonPatchValidator.Validation.Default
             {
                 var jsonPatchParser = DocumentValidatorFactory.Create(operation.OperationType);
 
-                if (!jsonPatchParser.IsValid(operation))
+                if (!jsonPatchParser.TryValid(operation, out message))
                 {
                     segment = null;
-                    message = "Format error for JSON Patch.";
                     return false;
                 }
 

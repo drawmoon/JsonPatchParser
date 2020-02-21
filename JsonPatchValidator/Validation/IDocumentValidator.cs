@@ -4,6 +4,6 @@ namespace JsonPatchValidator.Validation
 {
     public interface IDocumentValidator
     {
-        bool IsValid(Operation operation);
+        bool TryValid(Operation operation, out string message);
     }
 }

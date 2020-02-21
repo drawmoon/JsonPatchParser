@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.JsonPatch.Operations;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace JsonPatchValidator.Validation.Default
 {
-    public class RemoveDocumentValidator : DefaultDocumentValidator, IDocumentValidator
+    public class MoveAndCopyDocumentValidator : DefaultDocumentValidator, IDocumentValidator
     {
         public override bool TryValid([NotNull] Operation operation, out string message)
         {
@@ -18,6 +20,12 @@ namespace JsonPatchValidator.Validation.Default
             if (string.IsNullOrWhiteSpace(operation.path))
             {
                 message = MessageDefaults.PathCannotBeNull;
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(operation.from))
+            {
+                message = MessageDefaults.FromCannotBeNull;
                 return false;
             }
 

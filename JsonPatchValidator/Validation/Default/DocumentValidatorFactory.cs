@@ -11,13 +11,15 @@ namespace JsonPatchValidator.Validation.Default
             {
                 case OperationType.Add:
                 case OperationType.Replace:
+                case OperationType.Test:
+                    return new DefaultDocumentValidator();
                 case OperationType.Move:
                 case OperationType.Copy:
-                case OperationType.Test:
-                case OperationType.Invalid:
-                    return new DefaultDocumentValidator();
+                    return new MoveAndCopyDocumentValidator();
                 case OperationType.Remove:
                     return new RemoveDocumentValidator();
+                case OperationType.Invalid:
+                    throw new InvalidOperationException();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operationType), operationType, null);
             }
