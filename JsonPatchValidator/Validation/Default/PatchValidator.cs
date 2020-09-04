@@ -30,7 +30,7 @@ namespace JsonPatchValidator.Validation.Default
             return false;
         }
 
-        private bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, out string segment, out string message) where TModel : class, new()
+        private static bool TryVisit<TModel>(JsonPatchDocument<TModel> patchDoc, out string segment, out string message) where TModel : class, new()
         {
             var modelType = typeof(TModel);
 

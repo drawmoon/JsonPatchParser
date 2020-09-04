@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.JsonPatch.Operations;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.AspNetCore.JsonPatch.Operations;
 
-namespace JsonPatchValidator.Validation.Default
+namespace JsonPatchValidator.Commons
 {
     public static class MessageDefaults
     {
+        public static string PathSegmentNotFound(string segment) => $"The target location specified by path segment '{segment}' was not found.";
+
         public const string ValueCannotBeNull = "Parameter '" + nameof(Operation.value) + "' cannot be null.";
         public const string OpCannotBeNull = "Parameter '" + nameof(Operation.op) + "' cannot be null.";
         public const string InvalidOp = "Invalid" + nameof(Operation.op) + ".";

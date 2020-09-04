@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch.Operations;
+﻿using JsonPatchValidator.Commons;
+using Microsoft.AspNetCore.JsonPatch.Operations;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -10,12 +11,6 @@ namespace JsonPatchValidator.Validation.Default
         public virtual bool TryValid([NotNull] Operation operation, out string message)
         {
             if (operation == null) throw new ArgumentNullException(nameof(operation));
-
-            if ((operation.value is string v && string.IsNullOrWhiteSpace(v)) || operation.value == null)
-            {
-                message = MessageDefaults.ValueCannotBeNull;
-                return false;
-            }
 
             if (!VerificationOp(operation.op, out message))
             {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch.Internal;
+﻿using JsonPatchValidator.Commons;
+using Microsoft.AspNetCore.JsonPatch.Internal;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace JsonPatchValidator.Extensions
                 if (!location.TryGetJsonProperty(parsedSegment, out var jsonProperty))
                 {
                     segment = parsedSegment;
-                    message = $"The target location specified by path segment '{parsedSegment}' was not found.";
+                    message = MessageDefaults.PathSegmentNotFound(parsedSegment);
                     return false;
                 }
 
