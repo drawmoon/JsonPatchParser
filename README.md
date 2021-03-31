@@ -1,8 +1,11 @@
-# JsonPatchValidator
+# NInfra
+
+- [JsonPatchValidator](#jsonpatchvalidator)
+- [LinqExtensions](#linqextensions)
+
+## JsonPatchValidator
 
 Use `TryVisit` to verify the syntax of `json-patch` and write the error message to `ModelState`, or return `Message`.
-
-## Sample
 
 ```csharp
 [HttpPatch]
@@ -18,4 +21,36 @@ public IActionResult Update([FromBody, BindRequired] JsonPatchDocument<Column> p
 
     return Ok();
 }
+```
+
+## LinqExtensions
+
+C# Linq extension method.
+
+- [Sort By](#sort-by)
+- [Search](#search)
+
+### Sort-By
+
+Support one or more sort-by expressions.
+
+```c#
+query = query.SortBy(new SortByExpression("[Name Asc]"), new SortByExpression("[CreatedTime Desc]"));
+```
+
+Use subs.
+
+```c#
+var subs = new Dictionary<string, string>
+{
+    { "Code", "Id" }
+};
+
+query = query.SortBy(subs, new SortByExpression("[Code Asc]"));
+```
+
+### Search
+
+```c#
+
 ```
