@@ -1,7 +1,11 @@
 # NInfra
 
+Infrastructure lib of c#.
+
 - [JsonPatchValidator](#jsonpatchvalidator)
 - [LinqExtensions](#linqextensions)
+  - Sort-By
+  - Search
 
 ## JsonPatchValidator
 
