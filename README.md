@@ -58,3 +58,7 @@ query = query.SortBy(subs, new SortByExpression("[Code Asc]"));
 ```c#
 
 ```
+
+## License
+
+[MIT](LICENSE)

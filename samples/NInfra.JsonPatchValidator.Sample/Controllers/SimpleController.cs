@@ -11,6 +11,21 @@ namespace NInfra.JsonPatchValidator.Sample.Controllers
     [ApiController]
     public class SimpleController : ControllerBase
     {
+        /**
+         * 
+         * PATCH http://localhost:5000/api/simple
+         * 
+         * Body:
+         * [
+         *   {
+         *     "op": "replace",
+         *     "path": "/name2",
+         *     "from": "",
+         *     "value": "xiaoli"
+         *   }
+         * ]
+         */
+
         [HttpPatch]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
