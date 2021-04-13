@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace NInfra.LinqExtensions.Search
+namespace NInfra.LinqExtensions.Models
 {
     public class SearchExpression
     {

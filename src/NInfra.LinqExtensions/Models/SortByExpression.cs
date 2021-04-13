@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace NInfra.LinqExtensions.Sort
+namespace NInfra.LinqExtensions.Models
 {
     public class SortByExpression
     {

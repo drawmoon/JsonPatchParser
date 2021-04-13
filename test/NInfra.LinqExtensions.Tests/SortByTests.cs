@@ -1,4 +1,5 @@
-using NInfra.LinqExtensions.Sort;
+using NInfra.LinqExtensions.Extensions;
+using NInfra.LinqExtensions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +7,43 @@ using Xunit;
 
 namespace NInfra.LinqExtensions.Tests
 {
-    public class SortByExtensionsTests
+    public class SortByTests
     {
+        [Fact]
+        public void TestSortByExpression()
+        {
+            var sortExpression = new SortByExpression("[Name Asc]");
+
+            Assert.Equal("Name", sortExpression.Left);
+            Assert.Equal(SortOperator.Asc, sortExpression.Op);
+        }
+
+        [Fact]
+        public void TestSortByExpression2()
+        {
+            SortByExpression sortExpression = "[Name Asc]";
+
+            Assert.Equal("Name", sortExpression.Left);
+            Assert.Equal(SortOperator.Asc, sortExpression.Op);
+        }
+
+        [Fact]
+        public void TestSortByExpression3()
+        {
+            var sortExpression = new SortByExpression("Name", SortOperator.Asc);
+
+            Assert.Equal("Name", sortExpression.Left);
+            Assert.Equal(SortOperator.Asc, sortExpression.Op);
+        }
+
+        [Fact]
+        public void TestSortByExpression4()
+        {
+            var sortExpression = new SortByExpression("Name", SortOperator.Asc);
+
+            Assert.Equal("[Name Asc]", sortExpression.ToString());
+        }
+
         private class Project
         {
             public int Id { get; set; }
@@ -17,7 +53,7 @@ namespace NInfra.LinqExtensions.Tests
             public DateTime CreatedTime { get; set; }
         }
 
-        private IEnumerable<Project> InitData()
+        private static IEnumerable<Project> InitData()
         {
             yield return new Project
             {

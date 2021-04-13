@@ -1,12 +1,12 @@
-﻿using NInfra.LinqExtensions.Search;
+﻿using NInfra.LinqExtensions.Models;
 using Xunit;
 
 namespace NInfra.LinqExtensions.Tests
 {
-    public class SearchExpressionTests
+    public class SearchTests
     {
         [Fact]
-        public void Test1()
+        public void TestSearchExpression1()
         {
             var searchExpression = new SearchExpression("[Name Like 'xiaoli']");
 
@@ -16,7 +16,7 @@ namespace NInfra.LinqExtensions.Tests
         }
 
         [Fact]
-        public void Test2()
+        public void TestSearchExpression2()
         {
             SearchExpression searchExpression = "[Name Like 'xiaoli']";
 
@@ -26,7 +26,7 @@ namespace NInfra.LinqExtensions.Tests
         }
 
         [Fact]
-        public void Test3()
+        public void TestSearchExpression3()
         {
             var searchExpression = new SearchExpression("Name", SearchOperator.Like, "'xiaoli'");
 
@@ -36,7 +36,7 @@ namespace NInfra.LinqExtensions.Tests
         }
 
         [Fact]
-        public void Test4()
+        public void TestSearchExpression4()
         {
             var searchExpression = new SearchExpression("Name", SearchOperator.Like, "'xiaoli'");
 

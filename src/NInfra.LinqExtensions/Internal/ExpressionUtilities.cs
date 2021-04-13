@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace NInfra.LinqExtensions.Internal
 {
-    internal static class LinqBuilder
+    internal static class ExpressionUtilities
     {
         internal static Expression<Func<TSource, object>> BuildKeySelector<TSource>(ParameterExpression parameterExpression, string propertyName)
         {
